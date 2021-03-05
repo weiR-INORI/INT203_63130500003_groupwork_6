@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+  
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+<scripr src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></scripr>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+
+</head>
+
+<body>
+<div  id="app" class="container d-flex justify-content-center align-items-center ">
+      <div class="card">
+          <div class="upper"> <img v-bind:src="image2" class="img-fluid"> </div>
+          <div class="user text-center ml-14">
+              <div class="profile"> <img v-bind:src="image1" class="rounded-circle" width="80"> </div>
+          </div>
+          <div class="mt-12 text-center text-white">
+              <h4 class="mb-0">{{ name }}</h4> <span class="d-block mb-2">{{ location }}</span> <button class="btn btn-primary btn-sm follow">{{ follow }}</button>
+              <div class="d-flex justify-content-between align-items-center mt-4 px-4">
+                  <div class="stats">
+                      <h6 class="mb-0">{{ followers }}</h6> <span>{{ followersdata }}</span>
+                  </div>
+                  <div class="stats">
+                      <h6 class="mb-0">{{ projects }}</h6> <span> {{ projectsdata }}</span>
+                  </div>
+                  <div class="stats">
+                      <h6 class="mb-0">{{ ranks }}</h6> <span>{{  ranksdata }}</span>
+                  </div>
+              </div>
+          </div>
+
+          <form @submit.prevent="checkForm">
+            <div>
+                <div class="xl mt-12">Registration Form</div>
+                <p v-if="errors" class="text-pink-400">
+                    <b>Please correct the following error(s):</b>
+                    <ul>
+                       <li v-for="error in errors" class="text-sm">{{ error }}</li> 
+                    </ul>
+                </p>
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="flex flex-col">
+                        <label for="firstname" class="text-sm leading-normal">First Name</label>
+                        <input type="text" id="firstname" v-model="firstname" name="firstname" class="rounded bg-gray-200">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="lastname" class="text-sm leading-normal">Last Name</label>
+                        <input type="text" id="lastname" v-model="lastname" name="lastname" class="rounded bg-gray-200">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="age" class="text-sm leading-normal">Age</label>
+                        <input type="text" id="age" v-model="age" name="age" class="rounded bg-gray-200">
+                    </div>
+                    <div class="flex flex-col">
+                        <label>Gender</label>
+                        <div class="flex flex-row pt-2 space-x-2">
+                            <input type="radio" id="Male" v-model="gender" name="gender" value="M" class="rounded bg-gray-200">
+                            <label for="Male">Male</label>
+                            <input type="radio" id="Female" v-model="gender" name="gender" value="F" class="rounded bg-gray-200">
+                            <label for="Female">Female</label>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="email" class="text-sm leading-normal">Email</label>
+                        <input type="text" id="email" v-model="email" name="email" class="rounded bg-gray-200">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="phone" class="text-sm leading-normal">Phone Number</label>
+                        <input type="text" id="phone" v-model="phone" name="phone" class="rounded bg-gray-200">
+                    </div>                   
+                    <div >
+                        <input type="submit" value="Submit" class="h-6 w-14 rounded bg-pink-400">
+                    </div>
+                </div>
+            </div>                            
+          </form>
+
+      </div>
+  </div>
+
+
+  <!-- my main.js -->
+  <script src="./profile.js"></script>
+</body>
+
+</html>
